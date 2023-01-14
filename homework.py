@@ -23,17 +23,7 @@ HOMEWORK_VERDICTS = {
     'reviewing': 'Работа взята на проверку ревьюером.',
     'rejected': 'Работа проверена: у ревьюера есть замечания.'
 }
-'''
-Настройка логгера была перенесена в main,
-но тесты при таком исполнении код
-не проходит, поэтому оставил как было.
-'''
-logging.basicConfig(
-    level=logging.DEBUG,
-    filename='program.log',
-    format=('%(asctime)s, %(levelname)s, %(message)s, %(name)s,'
-            '%(funcName)s, %(lineno)d')
-)
+
 logger = logging.getLogger(__name__)
 handler = logging.StreamHandler(stream=sys.stdout)
 logger.addHandler(handler)
@@ -153,4 +143,10 @@ def main():
 
 
 if __name__ == '__main__':
+    logging.basicConfig(
+        level=logging.DEBUG,
+        filename='program.log',
+        format=('%(asctime)s, %(levelname)s, %(message)s, %(name)s,'
+                '%(funcName)s, %(lineno)d')
+    )
     main()
